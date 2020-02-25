@@ -35,3 +35,7 @@ def get_sheet_by_number(excel_path, number):
     sheet_name = sheet_names[number]
 
     return vote_excel_spreadsheet[sheet_name]
+
+
+if __name__ == "__main__":
+    print()
