@@ -42,7 +42,4 @@ def determine_preference_order_of_candidiates(standardised_ballots):
         ballots_with_names_in_order.append(candiates_ordered)
     return ballots_with_names_in_order
 
-# def write_ballots_to_csv(raw_ballots):
-#     for ballot in raw_ballots:
-#         for cand
 print(standardise_ballot_styles(mock_ballots,mock_styles))
