@@ -33,7 +33,7 @@ def convert_ballot_to_standard_ballot(ballot, ballot_style):
     standardised_ballot = []
     for i in range(1, len(ballot)):
         if ballot[i] != NOT_PREFERENCED:
-            standardised_ballot.append((ballot[i], ballot_style[i-1]))
+            standardised_ballot.append((ballot[i], ballot_style[i]))
     return standardised_ballot
 
 
