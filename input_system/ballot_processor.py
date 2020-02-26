@@ -1,14 +1,8 @@
 import csv
 
-mock_ballots = [[1, 1, 2, 3, 4], [2, 3, 0, 1, 2],
-                [3, 4, 3, 2, 1], [4, 0, 0, 1, 2]]
-mock_styles = [["S", "M", "L", "O"], ["O", "S", "M", "L"],
-               ["L", "O", "S", "M"], ["M", "L", "O", "S"]]
-
 NOT_PREFERENCED = 0
 
 # convert all ballots to the same style, remove unpreferenced votes and replace with names
-
 
 def standardise_ballot_styles(vote_ballots, ballot_styles):
     standardised_ballots_in_same_style = standardise_ballots(
@@ -53,7 +47,3 @@ def determine_preference_order_of_candidiates(standardised_ballots):
             candiates_ordered.append(cand)
         ballots_with_names_in_order.append(candiates_ordered)
     return ballots_with_names_in_order
-
-
-if __name__ == "__main__":
-    print()

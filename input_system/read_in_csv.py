@@ -1,8 +1,5 @@
 import openpyxl
 
-TEST_DATA_PATH = "./test_data.xlsx"
-
-
 def read_in_votes(excel_path):
     vote_sheet = get_sheet_by_number(excel_path, 0)
     columns_with_ballots = list(vote_sheet.columns)[1:]
@@ -35,7 +32,3 @@ def get_sheet_by_number(excel_path, number):
     sheet_name = sheet_names[number]
 
     return vote_excel_spreadsheet[sheet_name]
-
-
-if __name__ == "__main__":
-    print()
