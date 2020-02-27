@@ -10,12 +10,13 @@ def calculate_candidate_points(ballots):
 
 
 def elect_a_candidate(candidate_point_list, quota):
-    highest_candidate_tuple = None
-    # US10.1: sort candidate point list
+    candidate_point_list.sort(reverse=True)
+    # Equals sign worth discussing
+    highest_candidate_tuple = candidate_point_list[0]
+    if (highest_candidate_tuple[0] >= quota):
+        return candidate_point_list[0]
 
-    # US10.2: if highest person achieves quota, return their name, otherwise, return None
-
-    return highest_candidate_tuple
+    return None
 
 # US13
 
