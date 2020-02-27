@@ -21,9 +21,10 @@ def elect_a_candidate(candidate_point_list, quota):
 
 
 def find_lowest_point_candidate(candidate_point_list):
-    lowest_points_candidate_name = ""
+    candidate_point_list.sort()
+    lowest_points_candidate = candidate_point_list[0]
 
-    return lowest_points_candidate_name
+    return lowest_points_candidate
 
 # US16
 
