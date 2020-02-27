@@ -45,14 +45,6 @@ def find_lowest_point_candidate(candidate_point_list):
 
     return lowest_points_candidate
 
-# US16
-
-
-def calculate_exhausted_points(candidate_name, ballots):
-    number_of_points_with_only_candidate = 0
-
-    return number_of_points_with_only_candidate
-
 
 # "max",5,[] => [(5,"max")]
 # print(add_points_to_candidate("max", 5, []))
