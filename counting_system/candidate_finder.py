@@ -35,12 +35,3 @@ def find_lowest_point_candidate(candidate_point_list):
     lowest_points_candidate = candidate_point_list[0]
 
     return lowest_points_candidate
-
-# Helpers:
-
-# "max",5,[] => [(5,"max")]
-# print(add_points_to_candidate("max", 5, []))
-# # "max",10,[(5,"max")] => [(15,"max")]
-# print(add_points_to_candidate("max", 10, [(5, "max")]))
-# # "luke",5,[(5,"max")] => [(5,"max"),(5,"luke")]
-# print(add_points_to_candidate("luke", 5, [(5, "max")]))
