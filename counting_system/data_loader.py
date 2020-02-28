@@ -1,3 +1,4 @@
+
 def clean_row_turn_into_array(row):
     cleaned_row = row.rstrip('\n')
     array_row = cleaned_row.split(',')
