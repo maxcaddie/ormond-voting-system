@@ -26,3 +26,4 @@ def apply_transfer_factor_remove_elected_candidate(candidate_name, ballot_list, 
             ballot.remove(candidate_name)
 
     return ballot_list
+
