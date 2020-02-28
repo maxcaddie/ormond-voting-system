@@ -29,12 +29,12 @@ if __name__ == "__main__":
                 break
             transfer_factor = calculate_tranfer_factor(
                 ballot_collection, elected, quota)
-            apply_transfer_factor_remove_elected_candidate(
+            ballot_collection = apply_transfer_factor_remove_elected_candidate(
                 elected[1], ballot_collection, transfer_factor)
         candidate_point_list = calculate_candidate_points(ballot_collection)
         ballot_collection = remove_point_less_candidates(
             ballot_collection, candidate_point_list)
         lowest_point_candidate = find_lowest_point_candidate(
             candidate_point_list)
-        apply_transfer_factor_remove_elected_candidate(
-            lowest_point_candidate, ballot_collection, 1)
+        ballot_collection = apply_transfer_factor_remove_elected_candidate(
+            lowest_point_candidate[1], ballot_collection, 1)

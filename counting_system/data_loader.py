@@ -39,6 +39,3 @@ def load_in_csv_path():
             f.close()
             return csv_path
     # US14 Stats
-
-
-print(load_in_csv_path())
