@@ -1,20 +1,33 @@
-POINTS_PER_BALLOT = 1000
+MAX_BALLOT_POINTS = 1000
+CANDIDATE_TUPLE_NAME = 1
 
-# US8 - calculate quota
+
 def calculate_quota(ballot_list, vacancies):
     formal_votes = len(ballot_list)
-    return int(formal_votes*POINTS_PER_BALLOT/(vacancies + 1) + 1)
+    # Constitution 68.2 gives this formula
+    return int(formal_votes*MAX_BALLOT_POINTS/(vacancies + 1) + 1)
 
-# US11 - calculate TF
+
 def calculate_tranfer_factor(ballot_list, candidate_tuple, quota):
+    candidate_tuple.sort(reverse=True)
     achieved_points = candidate_tuple[0]
-    candidate_exhuausted_points = calculate_exhausted_points(candidate_tuple, ballot_list)
-    return (achieved_points - quota)/(achieved_points - candidate_exhuausted_points)    
+    candidate_exhuausted_points = calculate_exhausted_points(
+        candidate_tuple, ballot_list)
+    # 68.5.a gives this formula
+    return (achieved_points - quota)/(achieved_points - candidate_exhuausted_points)
 
-# US16 - calculate exhuausted points
+
 def calculate_exhausted_points(candidate_tuple, ballot_list):
     exhuausted_points = 0
     for ballot in ballot_list:
-        if len(ballot) == 2 and ballot[1] == candidate_tuple[1]:
-            exhuausted_points += ballot[0]
+        if len(ballot) == 2 and ballot_get_highest_preference(ballot) == candidate_tuple[CANDIDATE_TUPLE_NAME]:
+            exhuausted_points += ballot_get_points(ballot)
     return exhuausted_points
+
+
+def ballot_get_highest_preference(ballot):
+    return ballot[1]
+
+
+def ballot_get_points(ballot):
+    return ballot[0]
