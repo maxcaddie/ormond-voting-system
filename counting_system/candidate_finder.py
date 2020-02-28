@@ -1,5 +1,4 @@
-# US9
-
+from calculator import ballot_get_highest_preference, ballot_get_points
 
 def add_points_to_candidate(candidate_name, points_to_add, candidate_point_list):
     for (i, (current_points, current_name)) in enumerate(candidate_point_list, 0):
@@ -11,33 +10,25 @@ def add_points_to_candidate(candidate_name, points_to_add, candidate_point_list)
     candidate_point_list.append((points_to_add, candidate_name))
     return candidate_point_list
 
+def calculate_candidate_points(ballot_list):
+    candidate_point_list = []
 
-def calculate_candidate_points(ballots):
-    list_of_candidates_and_their_points = []
-    # US9.1: build a points list [(point_value, "name")] for every candidate
-    for ballot in ballots:
-        ballot_points = ballot[0]
-        ballots_first_preference = ballot[1]
-        add_points_to_candidate(
-            ballots_first_preference, ballot_points, list_of_candidates_and_their_points)
-   # US9.2: function to parse ballots to accumulate points for each 1st pref candidate and update points list
-    return list_of_candidates_and_their_points
-
-
-# US10
-
+    for ballot in ballot_list:
+        ballot_points = ballot_get_points(ballot)
+        ballot_first_preference = ballot_get_highest_preference(ballot)
+        candidate_point_list = add_points_to_candidate(
+            ballot_first_preference, ballot_points, candidate_point_list)
+        
+    return candidate_point_list
 
 def elect_a_candidate(candidate_point_list, quota):
     candidate_point_list.sort(reverse=True)
     # Equals sign worth discussing
     highest_candidate_tuple = candidate_point_list[0]
     if (highest_candidate_tuple[0] >= quota):
-        return candidate_point_list[0]
+        return highest_candidate_tuple
 
     return None
-
-# US13
-
 
 def find_lowest_point_candidate(candidate_point_list):
     candidate_point_list.sort()
@@ -45,6 +36,7 @@ def find_lowest_point_candidate(candidate_point_list):
 
     return lowest_points_candidate
 
+# Helpers:
 
 # "max",5,[] => [(5,"max")]
 # print(add_points_to_candidate("max", 5, []))
@@ -52,6 +44,3 @@ def find_lowest_point_candidate(candidate_point_list):
 # print(add_points_to_candidate("max", 10, [(5, "max")]))
 # # "luke",5,[(5,"max")] => [(5,"max"),(5,"luke")]
 # print(add_points_to_candidate("luke", 5, [(5, "max")]))
-
-
-# Helpers
