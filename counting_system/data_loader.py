@@ -29,6 +29,3 @@ def load_in_number_of_vacancies():
             return vacancies
 
 # US14 Stats
-
-
-print(load_in_number_of_vacancies())
