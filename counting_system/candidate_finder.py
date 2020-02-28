@@ -1,6 +1,3 @@
-# US9
-
-
 def add_points_to_candidate(candidate_name, points_to_add, candidate_point_list):
     for (i, (current_points, current_name)) in enumerate(candidate_point_list, 0):
         if current_name == candidate_name:
@@ -23,7 +20,6 @@ def calculate_candidate_points(ballots):
    # US9.2: function to parse ballots to accumulate points for each 1st pref candidate and update points list
     return list_of_candidates_and_their_points
 
-
 # US10
 
 
@@ -36,9 +32,7 @@ def elect_a_candidate(candidate_point_list, quota):
 
     return None
 
-# US13
-
-
+  
 def find_lowest_point_candidate(candidate_point_list):
     candidate_point_list.sort()
     lowest_points_candidate = candidate_point_list[0]
