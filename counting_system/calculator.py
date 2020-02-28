@@ -9,7 +9,6 @@ def calculate_quota(ballot_list, vacancies):
 
 
 def calculate_tranfer_factor(ballot_list, candidate_tuple, quota):
-    candidate_tuple.sort(reverse=True)
     achieved_points = candidate_tuple[0]
     candidate_exhuausted_points = calculate_exhausted_points(
         candidate_tuple, ballot_list)
