@@ -13,7 +13,13 @@ def calculate_tranfer_factor(ballot_list, candidate_tuple, quota):
     candidate_exhuausted_points = calculate_exhausted_points(
         candidate_tuple, ballot_list)
     # 68.5.a gives this formula
-    return (achieved_points - quota)/(achieved_points - candidate_exhuausted_points)
+    try:
+        transfer_factor = (achieved_points - quota) / \
+            (achieved_points - candidate_exhuausted_points)
+    except ZeroDivisionError:
+        transfer_factor = 0
+    finally:
+        return transfer_factor
 
 
 def calculate_exhausted_points(candidate_tuple, ballot_list):
