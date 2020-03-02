@@ -25,6 +25,8 @@ def calculate_candidate_points(ballot_list):
 
 
 def elect_a_candidate(candidate_point_list, quota):
+    if len(candidate_point_list) == 0:
+        return None
     candidate_point_list.sort(reverse=True)
     # Equals sign worth discussing
     highest_candidate_tuple = candidate_point_list[0]

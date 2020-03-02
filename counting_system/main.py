@@ -19,6 +19,7 @@ if __name__ == "__main__":
     ballot_collection = load_in_ballot_data(csv_path)
     number_of_vacancies = load_in_number_of_vacancies()
     quota = calculate_quota(ballot_collection, number_of_vacancies)
+    elected_candidate_list = []
     number_elected = 0
     while number_elected < number_of_vacancies:
         candidate_point_list = calculate_candidate_points(ballot_collection)
@@ -27,6 +28,9 @@ if __name__ == "__main__":
             elected = elect_a_candidate(candidate_point_list, quota)
             if elected == None:
                 break
+            elected_candidate_list.append(elected[1])
+            candidate_point_list.remove(elected)
+            number_elected += 1
             transfer_factor = calculate_tranfer_factor(
                 ballot_collection, elected, quota)
             ballot_collection = apply_transfer_factor_remove_elected_candidate(
@@ -38,3 +42,5 @@ if __name__ == "__main__":
             candidate_point_list)
         ballot_collection = apply_transfer_factor_remove_elected_candidate(
             lowest_point_candidate[1], ballot_collection, 1)
+
+    print(elected_candidate_list)
