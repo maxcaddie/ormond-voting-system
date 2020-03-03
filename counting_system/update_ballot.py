@@ -31,7 +31,6 @@ def apply_transfer_factor_remove_elected_candidate(candidate_name, ballot_list, 
 
     return ballot_list
 
-
 def ballot_is_empty(ballot):
     if len(ballot) == 1:
         return True
@@ -41,3 +40,4 @@ def ballot_is_empty(ballot):
 def remove_ballot(ballot_list, ballot_number):
     ballot_list.pop(ballot_number)
     return ballot_list
+
