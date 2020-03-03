@@ -17,17 +17,6 @@ def load_in_ballot_data(csv_of_ballots_path):
     return ballot_list
 
 
-def load_in_number_of_vacancies():
-    while True:
-        try:
-            vacancies = int(input("Enter the number of vacancies: "))
-        except ValueError:
-            print("Not an integer please re-enter a number")
-            continue
-        else:
-            return vacancies
-
-
 def load_in_csv_path():
     while True:
         try:
@@ -38,4 +27,15 @@ def load_in_csv_path():
         else:
             f.close()
             return csv_path
-    # US14 Stats
+
+
+def load_in_integer_with_message(message):
+    while True:
+        try:
+            entered_integer = int(
+                input(message))
+        except ValueError:
+            print("Not an integer please re-enter a number")
+            continue
+        else:
+            return entered_integer

@@ -36,3 +36,11 @@ def ballot_get_highest_preference(ballot):
 
 def ballot_get_points(ballot):
     return ballot[0]
+
+
+def calculate_percentage_of_eligable(number_of_eligable_voters, number_of_votes):
+    return (number_of_votes/number_of_eligable_voters) * 100
+
+
+def calculate_percentage_of_ineligable_votes(number_of_ineligable, number_of_votes):
+    return (number_of_votes/(number_of_votes+number_of_ineligable)) * 100
