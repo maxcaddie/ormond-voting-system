@@ -1,7 +1,8 @@
-from data_loader import *
-from calculator import *
-from candidate_finder import *
-from update_ballot import *
+from data_loader import load_in_ballot_data, load_in_csv_path, load_in_integer_with_message
+from calculator import calculate_quota, calculate_tranfer_factor
+from candidate_finder import calculate_candidate_points, elect_a_candidate, find_lowest_point_candidate
+from update_ballot import remove_point_less_candidates, apply_transfer_factor_remove_elected_candidate
+from stats import percentage_of_votes, inelgibable_calcualtions
 
 # US17
 
@@ -17,8 +18,21 @@ from update_ballot import *
 if __name__ == "__main__":
     csv_path = load_in_csv_path()
     ballot_collection = load_in_ballot_data(csv_path)
-    number_of_vacancies = load_in_number_of_vacancies()
+
+    # Stats
+    number_of_eligable_voters = load_in_integer_with_message(
+        "Enter the number of eligable voters: ")
+    number_of_informal_votes = load_in_integer_with_message(
+        "Enter the number of informal votes: ")
+    voter_turnout = percentage_of_votes(
+        number_of_eligable_voters, ballot_collection)
+    formality_of_votes = inelgibable_calcualtions(
+        number_of_informal_votes, ballot_collection)
+
+    number_of_vacancies = load_in_integer_with_message(
+        "Enter the number of vacancies: ")
     quota = calculate_quota(ballot_collection, number_of_vacancies)
+
     elected_candidate_list = []
     number_elected = 0
     while number_elected < number_of_vacancies:
@@ -47,5 +61,8 @@ if __name__ == "__main__":
             candidate_point_list)
         ballot_collection = apply_transfer_factor_remove_elected_candidate(
             lowest_point_candidate[1], ballot_collection, 1)
+
+    print("The turnout percentage was "+str(voter_turnout)+"%")
+    print("The formality was "+str(formality_of_votes)+"%")
 
     print(elected_candidate_list)
