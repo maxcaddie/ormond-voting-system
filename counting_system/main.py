@@ -23,11 +23,15 @@ if __name__ == "__main__":
     number_elected = 0
     while number_elected < number_of_vacancies:
         candidate_point_list = calculate_candidate_points(ballot_collection)
-        # Runs until no-one is elected
+        # Elects everyone who has reached the quota
         while True:
             elected = elect_a_candidate(candidate_point_list, quota)
             if elected == None:
-                break
+                candidate_point_list = calculate_candidate_points(
+                    ballot_collection)
+                elected = elect_a_candidate(candidate_point_list, quota)
+                if elected == None:
+                    break
             elected_candidate_list.append(elected[1])
             candidate_point_list.remove(elected)
             number_elected += 1
@@ -35,6 +39,7 @@ if __name__ == "__main__":
                 ballot_collection, elected, quota)
             ballot_collection = apply_transfer_factor_remove_elected_candidate(
                 elected[1], ballot_collection, transfer_factor)
+
         candidate_point_list = calculate_candidate_points(ballot_collection)
         ballot_collection = remove_point_less_candidates(
             ballot_collection, candidate_point_list)
