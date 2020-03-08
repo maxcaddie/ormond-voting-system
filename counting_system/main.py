@@ -34,6 +34,7 @@ if __name__ == "__main__":
     quota = calculate_quota(ballot_collection, number_of_vacancies)
 
     elected_candidate_list = []
+    eliminated_candidate_list = []
     number_elected = 0
     while number_elected < number_of_vacancies:
         candidate_point_list = calculate_candidate_points(ballot_collection)
@@ -41,6 +42,8 @@ if __name__ == "__main__":
         while True:
             elected = elect_a_candidate(candidate_point_list, quota)
             if elected == None:
+                if number_elected == number_of_vacancies:
+                    break
                 candidate_point_list = calculate_candidate_points(
                     ballot_collection)
                 elected = elect_a_candidate(candidate_point_list, quota)
@@ -61,8 +64,10 @@ if __name__ == "__main__":
             candidate_point_list)
         ballot_collection = apply_transfer_factor_remove_elected_candidate(
             lowest_point_candidate[1], ballot_collection, 1)
-
+        eliminated_candidate_list.append(lowest_point_candidate)
+    
+    print(eliminated_candidate_list)
     print("The turnout percentage was "+str(voter_turnout)+"%")
     print("The formality was "+str(formality_of_votes)+"%")
 
-    print(elected_candidate_list)
+    print("The elected candidate(s) is (are): ", elected_candidate_list)
