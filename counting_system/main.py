@@ -2,7 +2,7 @@ from data_loader import load_in_ballot_data, load_in_csv_path, load_in_integer_w
 from calculator import calculate_quota, calculate_tranfer_factor
 from candidate_finder import calculate_candidate_points, elect_a_candidate, find_lowest_point_candidate
 from update_ballot import remove_point_less_candidates, apply_transfer_factor_remove_candidate
-from stats import percentage_of_votes, inelgibable_calcualtions, print_results
+from stats import percentage_of_votes, inelgibable_calcualtions, print_results, record_current_points
 
 # US17
 
@@ -35,6 +35,7 @@ if __name__ == "__main__":
 
     elected_candidate_list = []
     eliminated_candidate_list = []
+    point_list_when_eliminated =[]
     number_elected = 0
     while number_elected < number_of_vacancies:
         candidate_point_list = calculate_candidate_points(ballot_collection)
@@ -66,6 +67,8 @@ if __name__ == "__main__":
             candidate_point_list)
         ballot_collection = apply_transfer_factor_remove_candidate(
             lowest_point_candidate[1], ballot_collection, 1)
+        point_list_when_eliminated.append(record_current_points(
+            lowest_point_candidate,candidate_point_list))
         eliminated_candidate_list.append(lowest_point_candidate)
 
     print_results(eliminated_candidate_list, elected_candidate_list,
