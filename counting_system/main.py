@@ -45,7 +45,8 @@ if __name__ == "__main__":
             elected = elect_a_candidate(candidate_point_list, quota)
             if elected == None:
                 if number_of_vacancies <= number_elected:
-                    candidate_point_list.append((points_of_last_elected, elected_candidate_list[-1]))
+                    candidate_point_list.append(
+                        (points_of_last_elected, elected_candidate_list[-1]))
                     for candidate in candidate_point_list:
                         if candidate[1] not in elected_candidate_list:
                             point_list_when_eliminated.append(record_current_points(
