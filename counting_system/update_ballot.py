@@ -19,7 +19,7 @@ def remove_point_less_candidates(ballot_list, candidate_points):
     return ballot_list
 
 
-def apply_transfer_factor_remove_elected_candidate(candidate_name, ballot_list, transfer_factor):
+def apply_transfer_factor_remove_candidate(candidate_name, ballot_list, transfer_factor):
 
     for (ballot_number, ballot) in enumerate(ballot_list):
         if ballot_get_highest_preference(ballot) == candidate_name:

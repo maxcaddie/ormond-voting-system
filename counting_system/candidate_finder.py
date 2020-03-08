@@ -41,3 +41,21 @@ def find_lowest_point_candidate(candidate_point_list):
     lowest_points_candidate = candidate_point_list[0]
 
     return lowest_points_candidate
+
+
+def get_a_candidates_points(name_of_candidate, candidate_point_list):
+    for (points, name) in candidate_point_list:
+        if name.lower() == name_of_candidate.lower():
+            return points
+    raise IndexError
+
+
+if __name__ == "__main__":
+    print(get_a_candidates_points(
+        "Sam", [(1000, "max"), (932, "Sam"), (8432, "Luke")]))
+    print(get_a_candidates_points(
+        "Max", [(100, "max"), (932, "Sam"), (8432, "Luke")]))
+    print(get_a_candidates_points(
+        "Max", [(1000, "max"), (932, "Sam"), (8432, "Luke")]))
+    print(get_a_candidates_points("Max", [(1000, "max")]))
+    print(get_a_candidates_points("Sam", [(1000, "max")]))

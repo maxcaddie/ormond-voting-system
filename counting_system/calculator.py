@@ -44,3 +44,7 @@ def calculate_percentage_of_eligable(number_of_eligable_voters, number_of_votes)
 
 def calculate_percentage_of_ineligable_votes(number_of_ineligable, number_of_votes):
     return (number_of_votes/(number_of_votes+number_of_ineligable)) * 100
+
+
+def calculate_performance_percentage(points_of_eliminated, points_of_lowest_elected):
+    return (points_of_eliminated/points_of_lowest_elected) * 100

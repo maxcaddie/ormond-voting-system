@@ -1,8 +1,8 @@
 from data_loader import load_in_ballot_data, load_in_csv_path, load_in_integer_with_message
 from calculator import calculate_quota, calculate_tranfer_factor
 from candidate_finder import calculate_candidate_points, elect_a_candidate, find_lowest_point_candidate
-from update_ballot import remove_point_less_candidates, apply_transfer_factor_remove_elected_candidate
-from stats import percentage_of_votes, inelgibable_calcualtions
+from update_ballot import remove_point_less_candidates, apply_transfer_factor_remove_candidate
+from stats import percentage_of_votes, inelgibable_calcualtions, print_results, record_current_points
 
 # US17
 
@@ -34,6 +34,8 @@ if __name__ == "__main__":
     quota = calculate_quota(ballot_collection, number_of_vacancies)
 
     elected_candidate_list = []
+    eliminated_candidate_list = []
+    point_list_when_eliminated = []
     number_elected = 0
     while number_elected < number_of_vacancies:
         candidate_point_list = calculate_candidate_points(ballot_collection)
@@ -41,6 +43,10 @@ if __name__ == "__main__":
         while True:
             elected = elect_a_candidate(candidate_point_list, quota)
             if elected == None:
+                if number_of_vacancies <= number_elected:
+                    print_results(eliminated_candidate_list, elected_candidate_list,
+                                  voter_turnout, formality_of_votes, point_list_when_eliminated)
+                    quit()
                 candidate_point_list = calculate_candidate_points(
                     ballot_collection)
                 elected = elect_a_candidate(candidate_point_list, quota)
@@ -51,7 +57,7 @@ if __name__ == "__main__":
             number_elected += 1
             transfer_factor = calculate_tranfer_factor(
                 ballot_collection, elected, quota)
-            ballot_collection = apply_transfer_factor_remove_elected_candidate(
+            ballot_collection = apply_transfer_factor_remove_candidate(
                 elected[1], ballot_collection, transfer_factor)
 
         candidate_point_list = calculate_candidate_points(ballot_collection)
@@ -59,10 +65,11 @@ if __name__ == "__main__":
             ballot_collection, candidate_point_list)
         lowest_point_candidate = find_lowest_point_candidate(
             candidate_point_list)
-        ballot_collection = apply_transfer_factor_remove_elected_candidate(
+        ballot_collection = apply_transfer_factor_remove_candidate(
             lowest_point_candidate[1], ballot_collection, 1)
+        point_list_when_eliminated.append(record_current_points(
+            lowest_point_candidate, candidate_point_list))
+        eliminated_candidate_list.append(lowest_point_candidate)
 
-    print("The turnout percentage was "+str(voter_turnout)+"%")
-    print("The formality was "+str(formality_of_votes)+"%")
-
-    print(elected_candidate_list)
+    print_results(eliminated_candidate_list, elected_candidate_list,
+                  voter_turnout, formality_of_votes, point_list_when_eliminated)
