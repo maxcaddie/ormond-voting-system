@@ -25,3 +25,10 @@ def print_results(eliminated_candidate_list, elected_candidate_list, voter_turno
     print("The formality was "+str(formality_of_votes)+"%")
 
     print(elected_candidate_list)
+
+
+def record_current_points(eliminated_candidate, current_point_list):
+    list_to_return = []
+    list_to_return.append(eliminated_candidate[1])
+    list_to_return.append(current_point_list)
+    return list_to_return
