@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     elected_candidate_list = []
     eliminated_candidate_list = []
-    point_list_when_eliminated =[]
+    point_list_when_eliminated = []
     number_elected = 0
     while number_elected < number_of_vacancies:
         candidate_point_list = calculate_candidate_points(ballot_collection)
@@ -45,7 +45,7 @@ if __name__ == "__main__":
             if elected == None:
                 if number_of_vacancies <= number_elected:
                     print_results(eliminated_candidate_list, elected_candidate_list,
-                                  voter_turnout, formality_of_votes)
+                                  voter_turnout, formality_of_votes, point_list_when_eliminated)
                     quit()
                 candidate_point_list = calculate_candidate_points(
                     ballot_collection)
@@ -68,8 +68,8 @@ if __name__ == "__main__":
         ballot_collection = apply_transfer_factor_remove_candidate(
             lowest_point_candidate[1], ballot_collection, 1)
         point_list_when_eliminated.append(record_current_points(
-            lowest_point_candidate,candidate_point_list))
+            lowest_point_candidate, candidate_point_list))
         eliminated_candidate_list.append(lowest_point_candidate)
 
     print_results(eliminated_candidate_list, elected_candidate_list,
-                  voter_turnout, formality_of_votes)
+                  voter_turnout, formality_of_votes, point_list_when_eliminated)

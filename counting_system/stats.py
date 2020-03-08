@@ -1,4 +1,4 @@
-from calculator import calculate_percentage_of_eligable, calculate_percentage_of_ineligable_votes
+from calculator import calculate_percentage_of_eligable, calculate_percentage_of_ineligable_votes, calculate_performance_percentage
 
 
 def percentage_of_votes(number_of_eligible_voters, ballot_collection):
@@ -19,12 +19,27 @@ def points_of_lowest_elected(points_at_time_elimination, elected_list):
             return point_tuple[0]
 
 
-def print_results(eliminated_candidate_list, elected_candidate_list, voter_turnout, formality_of_votes):
-    print(eliminated_candidate_list)
+def print_results(eliminated_candidate_list, elected_candidate_list, voter_turnout, formality_of_votes, point_list_when_eliminated):
     print("The turnout percentage was "+str(voter_turnout)+"%")
     print("The formality was "+str(formality_of_votes)+"%")
 
-    print(elected_candidate_list)
+    print("The elected candidates are: "+str(elected_candidate_list))
+
+    print("The performance_percentage")
+
+    for candidate in eliminated_candidate_list:
+        candidate_name = candidate[1]
+        candidate_points = candidate[0]
+        for record_of_points in point_list_when_eliminated:
+            if record_of_points[0] == candidate_name:
+                points_at_time_elimated = record_of_points[1]
+                break
+
+        lowest_elected = points_of_lowest_elected(
+            points_at_time_elimated, elected_candidate_list)
+
+        print(candidate_name, calculate_performance_percentage(
+            candidate_points, lowest_elected))
 
 
 def record_current_points(eliminated_candidate, current_point_list):
