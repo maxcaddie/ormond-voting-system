@@ -17,6 +17,7 @@ def points_of_lowest_elected(points_at_time_elimination, elected_list):
     for point_tuple in points_now:
         if point_tuple[1] in elected_list:
             return point_tuple[0]
+    
 
 
 def print_results(eliminated_candidate_list, elected_candidate_list, voter_turnout, formality_of_votes, point_list_when_eliminated):

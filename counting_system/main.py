@@ -37,6 +37,7 @@ if __name__ == "__main__":
     eliminated_candidate_list = []
     point_list_when_eliminated = []
     number_elected = 0
+    points_of_last_elected = 0
     while number_elected < number_of_vacancies:
         candidate_point_list = calculate_candidate_points(ballot_collection)
         # Elects everyone who has reached the quota
@@ -44,6 +45,12 @@ if __name__ == "__main__":
             elected = elect_a_candidate(candidate_point_list, quota)
             if elected == None:
                 if number_of_vacancies <= number_elected:
+                    candidate_point_list.append((points_of_last_elected, elected_candidate_list[-1]))
+                    for candidate in candidate_point_list:
+                        if candidate[1] not in elected_candidate_list:
+                            point_list_when_eliminated.append(record_current_points(
+                                candidate, candidate_point_list))
+                            eliminated_candidate_list.append(candidate)
                     print_results(eliminated_candidate_list, elected_candidate_list,
                                   voter_turnout, formality_of_votes, point_list_when_eliminated)
                     quit()
@@ -53,6 +60,7 @@ if __name__ == "__main__":
                 if elected == None:
                     break
             elected_candidate_list.append(elected[1])
+            points_of_last_elected = elected[0]
             candidate_point_list.remove(elected)
             number_elected += 1
             transfer_factor = calculate_tranfer_factor(
