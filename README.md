@@ -1,6 +1,24 @@
 # Ormond Voting System
+An automatic vote counting system created in collaboration with Luke Jacobson @jukelacobson1. 
 
-An automatic vote counting system created in collaboration with Luke Jacobson. This system takes in an excel spreadsheet of votes are returns the election results. The results are calculated using the single transferable vote system, similar to how the Australian Senate is elected.
+# How to use/demo/install instructions
+See the bottom of this README
+
+
+# Why?
+We created this to speed up the calculation of the Ormond College election results. The results are calculated using the single transferable vote system, similar to how the Australian Senate is elected.
+
+# Benefits
+This system is used to great effect to speed up our election process. Our General Council elections used to take around ten hours to tally up all the votes by hand, we estimate that with our system the process should take a fifth of the time (two hours for the GC elections).
+
+Hopefully, this will be of great help to the college returning officer in October for running the general elections. This system could also be of use to anyone looking to run any elections using the single transferable vote system.
+
+# Further Improvements
+The current system uses excel as the data entry method. While we have streamlined this process as much as we could think of there is room for improvement.
+  1. Creating collaboration tools. The current workflow for having mutiple people count votes requires them to keep individual sheets and then combine them into a master sheet.
+  2. Run the system as a web application. Storing data in the cloud so that it could be accessed on multiple devices.
+  3. Adding a optical character reader, so that ballots could be scanned. In the current workflow the biggest time sink is data entry.
+
 
 ## Required imports
 *Change for your version number of python*\
