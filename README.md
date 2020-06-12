@@ -35,7 +35,7 @@ The current system uses excel as the data entry method. While we have streamline
 <img src="./readme_images/terminal_output_1.png" alt="Output of input system" width="400" height="70">
 
 ##### The output of the counting system
-Note an extra ballot was added, compared to images above, in order to demonstrate the output from performance percentages
+*Note an extra ballot was added, compared to images above, in order to demonstrate the output from performance percentages*
 
 <img src="./readme_images/terminal_output_2.png" alt="Output of counting system" width="400" height="180">
 
