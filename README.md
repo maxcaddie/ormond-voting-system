@@ -31,7 +31,15 @@ The current system uses excel as the data entry method. While we have streamline
 
 # Running process
 
-1. Open up terminal/command prompt and navigate to the directory installed by the git clone. Using the cd and ls commands.
-2. Navigate into the folder called input_system
-3. 
+1. Using Finder/File Manager navigate to the folder you have cloned, then the folder called input_system
+2. Enter your voting data into the excel file called `ballot_sheet.xlsx`, following the format in the demo (above)
+3. Open up terminal/command prompt and navigate to the directory input_system. Using the cd and ls commands.
+4. Run the command `python3 main.py`
+5. When it asks for excel file name enter, `ballot_sheet`. If you have changed the name of the file use the new name of the file instead of ballot_sheet
+5. A file called `raw_ballots.csv` should have been generated
+6. Copy this file and navigate out one directory and then into couting_system
+7. Paste the `raw_ballots.csv` into this directory
+8. Again run `python3 main.py`
+9. When it asks for a path to the csv enter `raw_ballots.csv`
+10. Enter all the information it asks for, then your results should be generated!
 
