@@ -1,9 +1,8 @@
 # Ormond Voting System
-An automatic vote counting system created in collaboration with Luke Jacobson @jukelacobson1. 
+An automatic vote counting system created in collaboration with Luke Jacobson @jukelacobson1 https://github.com/jukelacobson1. 
 
 # How to use/demo/install instructions
 See the bottom of this README
-
 
 # Why?
 We created this to speed up the calculation of the Ormond College election results. The results are calculated using the single transferable vote system, similar to how the Australian Senate is elected.
@@ -30,4 +29,9 @@ The current system uses excel as the data entry method. While we have streamline
 3. Install openpyxl, which allows the reading and writing of Excel files `pythonX.X -m pip install --user -U openpyxl==2.6.2`, where X.X should be the version number of python you have installed
 4. The program is installed and ready to run (see below)
 
+# Running process
+
+1. Open up terminal/command prompt and navigate to the directory installed by the git clone. Using the cd and ls commands.
+2. Navigate into the folder called input_system
+3. 
 
