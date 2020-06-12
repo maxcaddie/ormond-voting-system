@@ -17,13 +17,29 @@ The current system uses excel as the data entry method. While we have streamline
 
 # Demo
 
-The voting data will be entered into `ballot_sheet.xlsx`, this is what the sheet should look like after being downloaded.
+#### The voting data will be entered into `ballot_sheet.xlsx`, this is what the sheet should look like after being downloaded.
 
-Enter your voting data in the following format, note there are two sheets inside this spreadsheet.
+<img src="./readme_images/empty_sheet.png" alt="Empty Ballot Sheet" width="600" height="350">
 
-Follow the installation process at the bottom, navigating through the two python programs with outputs that looklike below.
+#### Enter your voting data in the following format, note there are two sheets inside this spreadsheet.
+##### The style sheet
+<img src="./readme_images/ballot_style.png" alt="Example Style Sheet" width="600" height="150">
 
-You are done!
+##### The vote sheet
+
+<img src="./readme_images/vote_sheet.png" alt="Example Votes Sheet" width="600" height="350">
+
+#### Follow the installation process at the bottom, navigating through the two python programs
+
+##### The output of the input system
+<img src="./readme_images/terminal_output_1.png" alt="Output of input system" width="400" height="70">
+
+##### The output of the counting system
+Note an extra ballot was added, compared to images above, in order to demonstrate the output from performance percentages
+
+<img src="./readme_images/terminal_output_2.png" alt="Output of counting system" width="400" height="180">
+
+#### You are done!
 
 
 # Installation Proccess
