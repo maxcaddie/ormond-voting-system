@@ -19,7 +19,15 @@ The current system uses excel as the data entry method. While we have streamline
   2. Run the system as a web application. Storing data in the cloud so that it could be accessed on multiple devices.
   3. Adding a optical character reader, so that ballots could be scanned. In the current workflow the biggest time sink is data entry.
 
+# Demo
 
-## Required imports
-*Change for your version number of python*\
-pythonX.X -m pip install --user -U openpyxl==2.6.2
+
+
+# Installation Proccess
+
+1. git clone this repository.
+2. Install any version of python3 from https://www.python.org/downloads/
+3. Install openpyxl, which allows the reading and writing of Excel files `pythonX.X -m pip install --user -U openpyxl==2.6.2`, where X.X should be the version number of python you have installed
+4. The program is installed and ready to run (see below)
+
+
